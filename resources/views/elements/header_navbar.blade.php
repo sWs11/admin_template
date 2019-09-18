@@ -322,7 +322,16 @@
                             <a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a>
                             <a class="dropdown-item" href="chat-application.html"><i class="ft-message-square"></i> Chats</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>
+{{--                            <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a>--}}
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="ft-power"></i> {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </li>
                 </ul>
